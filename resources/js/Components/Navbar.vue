@@ -7,6 +7,7 @@ export default {
     },
     methods: {
         toggleOpen() {
+            console.log(this.open)
             this.open = !this.open;
         },
     },
@@ -34,9 +35,8 @@ export default {
             </div>
             <nav :class="{ 'flex': open, 'hidden': !open }"
                 class="flex-col items-center flex-grow hidden md:flex md:flex-row md:justify-start md:mt-0 lg:p-0 py-2 md:py-0 md:px-0 md:pb-0 px-5">
-                <!-- Add your links here, same as you had -->
-                <a class="text-black duration-1000 text-lg ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition md:ml-8 lg:ml-16 2xl:ml-0"
-                    href="/">Home
+                <a class="text-black text-2xl duration-1000 ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition md:ml-8 lg:ml-16 2xl:ml-0"
+                    href="/"> Wooly Wonders
                 </a>
 
                 <a class="text-black duration-1000 text-lg ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition"
