@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +40,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/testing', function () {
     return Inertia::render("Test");
 });
+
+Route::resource('/category', CategoryController::class);
+
 
 require __DIR__ . '/auth.php';
