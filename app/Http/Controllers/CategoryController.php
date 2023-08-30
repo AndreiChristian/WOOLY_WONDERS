@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Category/Index', ['name' => "Andrei", "luckyNumber" => 42]);
+        $categories = Category::all();
+
+        return Inertia::render('Category/Index', ['categories' => $categories]);
     }
 
     /**
@@ -38,8 +40,9 @@ class CategoryController extends Controller
             'name' => $request->name
         ]);
 
-        Log::debug(Category::all());
+        return to_route('category.index');
     }
+
 
     /**
      * Display the specified resource.

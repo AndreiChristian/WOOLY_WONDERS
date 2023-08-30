@@ -5,7 +5,7 @@ import { router } from '@inertiajs/vue3'
 
 
 const form = reactive({
-    name: "Dummy Name"
+    name: ""
 })
 
 function submit() {
@@ -28,14 +28,12 @@ function submit() {
                             </div>
                         </div>
                         <form @submit.prevent="submit" class="mt-6">
-                            <input autocomplete="false" name="hidden" type="text" style="display:none;" />
-                            <input type="hidden" name="_redirect" value="#" />
                             <div class="space-y-6">
                                 <div
                                     class="border-2 border-black divide-y-2 divide-black shadow-large rounded-xl overflow-hidden">
                                     <div>
                                         <label name="name" class="sr-only"> Category Name</label>
-                                        <input type="text" placeholder="Catgeory Name"
+                                        <input type="text" placeholder="Catgeory Name" v-model="form.name"
                                             class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-lila-500 focus:outline-none focus:ring-black sm:text-sm" />
                                     </div>
                                 </div>
