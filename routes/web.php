@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,7 @@ Route::get('/testing', function () {
 });
 
 Route::resource('/category', CategoryController::class);
+Route::resource('/product', ProductController::class);
 
 
 require __DIR__ . '/auth.php';
