@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
+import { Link } from '@inertiajs/vue3';
 
 const state = reactive({ open: false })
 function toggleOpen() {
@@ -29,16 +30,19 @@ function toggleOpen() {
             </div>
             <nav :class="{ 'flex': state.open, 'hidden': !state.open }"
                 class="flex-col items-center flex-grow hidden md:flex md:flex-row md:justify-start md:mt-0 lg:p-0 py-2 md:py-0 md:px-0 md:pb-0 px-5">
-                <a class="text-black text-2xl duration-1000 ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition md:ml-8 lg:ml-16 2xl:ml-0"
+                <Link
+                    class="text-black text-2xl duration-1000 ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition md:ml-8 lg:ml-16 2xl:ml-0"
                     href="/"> Wooly Wonders
-                </a>
+                </Link>
 
-                <a class="text-black duration-1000 text-lg ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition"
+                <Link
+                    class="text-black duration-1000 text-lg ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition"
                     href="/product">Products
-                </a>
-                <a class="text-black duration-1000 text-lg ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition"
-                    href="/styleguide">Style Guide
-                </a>
+                </Link>
+                <Link
+                    class="text-black duration-1000 text-lg ease-in-out focus:outline-none focus:shadow-none focus:text-orange/90 hover:text-lila-900 md:my-0 px-4 py-2 transform transition"
+                    href="/category">Category
+                </Link>
 
                 <a class="text-lila-500 md:ml-auto text-lg bg-black border-l-2 border-black duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 hover:bg-lila-900 hover:text-lila-500 inline-flex items-center justify-center px-6 text-center transform transition py-2 md:py-8"
                     href="https://lexingtonthemes.lemonsqueezy.com/checkout/buy/645ac44b-ee66-4368-bb58-be869569fb88"><span>Buy

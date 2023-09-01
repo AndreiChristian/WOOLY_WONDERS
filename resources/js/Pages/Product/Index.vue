@@ -3,11 +3,17 @@ import BaseLayout from '@/Layouts/BaseLayout.vue'
 import Header from '@/Components/Shared/Header.vue'
 import ProductCard from "@/Components/Store/ProductCard.vue"
 import { Product, Category } from "@/types/index"
+import { onMounted } from 'vue';
 
 
-const { categories } = defineProps<{
-    categories: Category[]
+const { categories, products } = defineProps<{
+    categories: Category[],
+    products: Product[]
 }>()
+
+onMounted(() => {
+    console.log(products)
+})
 
 
 </script>
@@ -35,7 +41,9 @@ const { categories } = defineProps<{
         <section class="bg-white" aria-labelledby="blog" id="blog">
             <div class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-12 mt-16 [">
-                    <ProductCard :name="'Dummy product'" :description="'Dummy description'" :price="15"></ProductCard>
+                    <ProductCard v-for="p in products" :key="p.id" :id="p.id" :name="p.name" :description="p.description"
+                        :price="p.price">
+                    </ProductCard>
                 </div>
             </div>
         </section>

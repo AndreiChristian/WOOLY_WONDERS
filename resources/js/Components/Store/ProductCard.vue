@@ -1,15 +1,19 @@
 <script setup lang="ts">
-
+    import { Link } from '@inertiajs/vue3'
     import {Product} from "@/types/index"
+    import {onMounted} from "vue"
 
     const props = defineProps<Product>();
 
-    const {name,price,description}=props
+    const {id,name,price,description}=props
+
+    const path = `/product/${id}`
+
 
 </script>
 
 <template>
-    <a href={template.url}>
+    <Link :href='path'>
         <div class="group relative border-2 border-black shadow-large h-full">
             <div>
                 <img src='https://jeaninegabrielle.files.wordpress.com/2021/06/il_794xn.3061715833_iqsq.jpg?w=794'
@@ -26,5 +30,5 @@
                 <p class="mt-3 text-xl text-black">{{description}}</p>
             </div>
         </div>
-    </a>
+    </Link>
 </template>

@@ -16,8 +16,9 @@ class ProductController extends Controller
     {
 
         $categories = Category::all();
+        $products = Product::all();
 
-        return Inertia::render('Product/Index', ['categories' => $categories]);
+        return Inertia::render('Product/Index', ['categories' => $categories, 'products' => $products]);
     }
 
     /**
@@ -33,13 +34,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             "name" => ['required', 'string', 'max:255'],
             "description" => ['required', 'string'],
             "price" => ['required', 'numeric'],
         ]);
 
-        dd($validated);
+        $product = new Product;
+
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->category_id = 7;
+
+        $product->save();
+
+        return to_route('product.index');
     }
 
     /**
@@ -47,7 +57,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Inertia::render('Product/Show', ["product" => $product]);
     }
 
     /**
