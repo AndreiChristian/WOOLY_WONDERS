@@ -2,9 +2,10 @@
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 import { reactive } from 'vue';
 import { router } from '@inertiajs/vue3'
+import { Category } from '@/types/index'
 
 
-const form = reactive({
+const form = reactive < Category > ({
     name: ""
 })
 
